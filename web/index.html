@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title >ポートフォリオ1</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script>
+            
+        </script>
+
+
+        
+        <script type="text/javascript">
+            var pics = new Array("sample1.png","sample2.png","sample3.png");
+            var num =0;
+            function pic_next(){
+                if (num == 2) {
+                    num = 0;
+                }
+                else {
+                    num ++;
+                }
+                document.getElementById("slide_pic").src = pics[num];
+            }
+            function pic_mae(){
+                if(num==0){
+                    num =2;
+                }else{
+                    num--;
+                }
+                document.getElementById("slide_pic").src = pics[num];
+            }
+
+            $(function() {
+   // スクロールしたときに実行
+   $(window).scroll(function () {
+      // 目的のスクロール量を設定(px)
+      var TargetPos = 350;
+      // 現在のスクロール位置を取得
+      var ScrollPos = $(window).scrollTop();
+      // 現在位置が目的のスクロール量に達しているかどうかを判断
+      if( ScrollPos >= TargetPos) {
+         // 達していれば表示
+         $("#topbutton").fadeIn();
+      }
+      else {
+         // 達していなければ非表示
+         $("#topbutton").fadeOut();
+      }
+   });
+});
+        </script>
+        <style>
+            header{
+                
+                display: flex;
+                background-color: black;
+                color: white;
+                height: 100px;
+                width: 1200px;
+                justify-content:space-between;
+                position: fixed;
+                z-index: 3;
+            }
+            #company{
+                margin: auto;
+                font-size: 30px;
+                
+            }
+            #call{
+                font-size: 30px;
+                font-weight: 900;
+                padding-left: 80px;
+                padding-right: 80px;
+                padding-top: 30px;
+                background-color: antiquewhite;
+                height: 70px;
+                margin-top: 0px;
+            }
+            
+            #phonenum{
+                margin: auto;
+                
+            }
+            h2{
+                text-align: center;
+                background-color: black;
+                color: white;
+                border: 1px solid rgb(0, 0, 0);
+                border-radius: 20px;
+                padding: 10px 10px 10px 10px;
+                
+            }
+            
+            .input{
+                border: 1px solid black;
+            }
+            #id1{
+                text-align: center;
+                color: yellow;
+                background-color: black;
+                padding-top: 70px;
+                padding-bottom: 70px;
+                font-size: 20px;
+                font-style: oblique;
+            }
+            .pic{
+                width: 1200px;
+                
+                margin-top: 100px;
+            }
+            .red{
+                color: red;
+                font-size: 30px;
+                font-weight:800;
+            }
+            #works{
+                border: 5px solid #000000;
+                width: 600px;
+                height: 340px;
+                margin: 0 auto;
+                position: relative;
+            }
+            .flow{
+                display: flex;
+                justify-content: space-between;
+            }
+            .child{
+                border: solid #000000;
+                margin: 10px 20px;
+            }
+            .step{
+                text-align: center;
+                font-size: 30px;
+                font-weight: 900;
+            }
+            #maebutton{
+                position: absolute;
+                top: 170px;
+                left: 0px;
+                z-index: 2;
+            }
+            #nextbutton{
+                position: absolute;
+                top: 170px;
+                right: 0px;
+                z-index: 2;
+            }
+            #slide_pic{
+                border: #000000 solid 1px;
+                width: 600px;
+                height: 340px;
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                z-index: 1;
+            }
+            table{
+                border-collapse: collapse;
+                margin: 0px auto;
+            }
+            #send{
+                margin-left: 160px;
+            }
+            input{
+                margin: 10px;
+            }
+            #toiawase{
+                margin: 10px;
+            }
+            #topbutton{
+                position: fixed; /* ←表示場所を固定 */
+                bottom: 18px;   /* ←下端からの距離 */
+                right: 40px;    /* ←右端からの距離 */
+                width: 1em;     /* ←横幅 */
+                display: none;
+                z-index: 10;
+            }
+            #topbuttonimg{
+                position: fixed; /* ←表示場所を固定 */
+                bottom: 20px;   /* ←下端からの距離 */
+                right: 20px;    /* ←右端からの距離 */
+                width: 50px;     /* ←横幅 */
+                position: relative;
+                z-index: 8;
+            }
+            #circle{
+                position: absolute;
+                top: -40px;
+                
+                right: -38px;
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                background: #a5e3ff;
+                border: 5px solid #a5e3ff;
+                box-sizing: border-box;
+                z-index: 7;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <p id="company">株式会社○○○○○○○○○○</p>
+            <ul id="phonenum">
+                <li>電話番号000-0000-000</li>
+                <li>営業時間 10:00-18:00</li>
+            </ul>
+            <a href="#otoiawase">
+                <p id="call">お問い合わせ</p>
+            </a>
+            
+        </header>
+        <p id="topbutton"><a href="#top" onclick="$('html,body').animate({ scrollTop: 0 }); return false;"><img src="topbutton.png" id="topbuttonimg"><span id="circle"></span></a></p>
+
+        <img src="top画像.png" class="pic">
+        
+        <p id="id1">webサイトの制作、承ります。
+            <br>集客につながるLP制作なら<span class="red">お任せください！</span>
+        </p>
+
+
+        <h2>実績例</h2>
+        <div id="works">
+            <img src="sample1.png" alt="sample" id="slide_pic" width="500px">
+            <img src="yazirusi.png" id="maebutton" onclick="pic_mae()" width="30px" style="transform: scale(-1.1);">
+            <img src="yazirusi.png" id="nextbutton" onclick="pic_next()" width="30px">
+        </div>
+
+        <h2>お問い合わせから納品までの流れ</h2>
+        <div class="flow">
+            <div class="child">
+                <div class="step">step1</div>
+                テキストテキストテキストテキストテキスト
+            </div>
+            <div class="child">
+                <div class="step">step2</div>
+                テキストテキストテキストテキストテキスト
+            </div>
+            <div class="child">
+                <div class="step">step3</div>
+                テキストテキストテキストテキストテキスト
+            </div>
+        </div>
+        <a name="otoiawase"><br></a><br><br><br><br><br><br>
+        <h2>お問い合わせ</h2>
+        <table border="1">
+            <tr>
+                <td>貴社名</td>
+                <td><input type="text" style="height: 20px;"></td>
+            </tr>
+            <tr>
+                <td>担当者名</td>
+                <td><input type="text" style="height: 20px;"></td>
+            </tr>
+            <tr>
+                <td>電話番号</td>
+                <td><input type="text" style="height: 20px;"></td>
+            </tr>
+            <tr>
+                <td>メールアドレス</td>
+                <td><input type="text" style="height: 20px;"></td>
+            </tr>
+            <tr>
+                <td>住所</td>
+                <td><input type="text" style="height: 20px;"></td>
+            </tr>
+            <tr>
+                <td>お問い合わせ内容</td>
+                <td><textarea cols="30" rows="10" id="toiawase"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="button" id="send" value="送信"></td>
+                
+            </tr>
+            
+        </table>
+        
+        
+
+        </div>
+          
+    </body>
+</html>
